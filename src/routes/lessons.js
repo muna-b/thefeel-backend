@@ -22,14 +22,13 @@ async function routes(fastify) {
     fastify.route({
         method: 'POST',
         url: '/lessons',
-        option: upload,
         schema: opts.schema,
         // preValidation: fastify.authenticateAdmin,
         handler: async(request, reply)=>{
             const db = fastify.mongo.db
             const collection = db.collection('lessons')
             const result = await collection.insertOne(request.body)
-            return result.ops[0]
+            return result
         }
     })
     //#endregion

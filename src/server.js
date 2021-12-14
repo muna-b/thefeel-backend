@@ -14,6 +14,7 @@ fastify.register(require('fastify-cors',), {
     methods : 'GET,HEAD,PUT,PATCH,POST,DELETE',
     preflightContinue : false,
   })
+fastify.register(require('./routes/lessons'))
 
 const start = async () => {
     try {
